@@ -1,0 +1,64 @@
+name: Build autojobs for Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+      - name: Install dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Run tests
+        run: python -m pytest -q
+      - name: Build executable
+        run: python -m PyInstaller --noconfirm --clean autojobs.spec
+      - name: Add editable portable files
+        shell: pwsh
+        run: |
+          Copy-Item themes.json dist/themes.json
+          Copy-Item README.txt dist/README.txt
+          Copy-Item prompt.txt dist/prompt.txt
+          Copy-Item answer-profile-template.json dist/answer-profile-template.json
+          @"
+          autojobs 2.9.2 portable Windows build
+
+          Python is NOT required on the destination computer.
+          Google Chrome must be installed.
+          Internet access may be required the first time Selenium Manager resolves a compatible ChromeDriver.
+          Keep autojobs.exe, themes.json, README.txt, prompt.txt and answer-profile-template.json together.
+          "@ | Set-Content dist/BUILD_INFO.txt -Encoding UTF8
+          Compress-Archive -Path dist/* -DestinationPath autojobs-v2.9.2-portable-win64.zip -CompressionLevel Optimal
+      - name: Install Inno Setup
+        shell: pwsh
+        run: choco install innosetup --no-progress -y
+      - name: Build Windows Setup
+        shell: pwsh
+        run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer\autojobs.iss'
+      - name: Upload Windows installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: autojobs-Setup-Windows
+          path: installer-output/autojobs-Setup.exe
+          if-no-files-found: error
+      - name: Upload Windows package
+        uses: actions/upload-artifact@v4
+        with:
+          name: autojobs-Windows
+          path: |
+            dist/autojobs.exe
+            dist/themes.json
+            dist/README.txt
+            dist/prompt.txt
+            dist/answer-profile-template.json
+            dist/BUILD_INFO.txt
+            autojobs-v2.9.2-portable-win64.zip
+          if-no-files-found: error

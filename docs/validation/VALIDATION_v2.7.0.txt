@@ -1,0 +1,63 @@
+autojobs v2.7.0 — VALIDATION REPORT
+Date: 2026-09-09
+
+SCOPE
+- Fix false location skips observed in a real Dublin-only run.
+- Preserve language-agnostic Automatic fallback behavior.
+- Preserve Supervised prompting and Learned Answer persistence.
+- Improve Windows build diagnostics and portable distribution.
+- Add five themes, disclaimer dismissal, and AI-files folder discovery.
+
+USER BUILD LOG REVIEW
+- The supplied v2.6 Windows build completed successfully.
+- Its pre-build test suite reported 60 passed.
+- PyInstaller completed EXE creation successfully.
+- The pycparser.lextab / pycparser.yacctab messages were PyInstaller hook warnings, not a build failure.
+- v2.7 still treats PyInstaller diagnostic warnings as diagnostics, while build/test/native command exit codes are now checked explicitly.
+- pytest/_pytest are excluded from the packaged executable because they are build-only dependencies.
+
+LOCATION REGRESSION FIX
+Configured search: Dublin, County Dublin, Ireland
+- job metadata unavailable: unknown -> ALLOW
+- Dublin, Ireland: match -> ALLOW
+- County Dublin, Ireland: match -> ALLOW
+- Ireland: compatible -> ALLOW
+- Lisbon, Portugal: conflict -> REJECT
+- Cork, County Cork, Ireland: conflict -> REJECT
+
+The LinkedIn search URL remains the primary filter. The second guard now rejects only verified conflicts; it never skips solely because the current LinkedIn UI did not expose location metadata.
+
+LANGUAGE-AGNOSTIC ANSWER CHECKS
+- Arabic unmapped text question -> configured text fallback (N/A).
+- Japanese unmapped select -> autonomous first-valid option in Automatic mode.
+- Japanese numeric-like field using inputMode=numeric -> configured numeric fallback.
+- Polish unmapped radio question in Supervised -> should_prompt=True.
+- After saving the Polish response -> reused as learned-exact.
+- Existing Unicode, structural-signature and cross-language tests remain enabled.
+
+GUI SMOKE TEST
+- Window title: autojobs
+- Default size: 1240x830
+- Responsive checks: 760x600, 1000x700, 1400x900
+- Theme count: 10
+- New themes loaded: Ctrl+Alt+Hired, Recruiter Ghosted Me, Coffee Before Interviews, Terminal Goblin, Merge Conflict
+- "Where are these files?" button present beside Import AI answers.
+- "Don't show this again" hides the disclaimer and persists show_run_disclaimer=false.
+
+AUTOMATED TESTS
+69 passed
+compileall: PASS
+GitHub Actions YAML parse: PASS
+
+WINDOWS BUILDER CHANGES
+- build.log is created automatically using Start-Transcript.
+- Native process exit codes are checked after venv, pip, pytest, PyInstaller and Inno Setup commands.
+- dist is removed before build to prevent stale portable files.
+- dist receives autojobs.exe + themes.json + README.txt + prompt.txt + answer-profile-template.json + BUILD_INFO.txt.
+- release/autojobs-v2.7.0-portable-win64.zip is created automatically from dist.
+- Destination computers do NOT require Python.
+- Destination computers DO require Google Chrome.
+- First-time Selenium Manager driver resolution may require internet access.
+
+LIMITATION
+This Linux validation environment cannot execute the Windows PyInstaller/Inno Setup build itself. The user's supplied v2.6 Windows build log confirms that the same PyInstaller architecture successfully produced autojobs.exe on Windows; v2.7 changes to the build scripts were statically reviewed and covered by tests, but the final Windows binary must be rebuilt on Windows using build_windows.bat or GitHub Actions.

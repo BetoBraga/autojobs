@@ -1,0 +1,103 @@
+autojobs v2.8.0 — FORM CONTROLS VALIDATION REPORT
+==================================================
+Date: 2026-09-09
+Base: autojobs v2.7.1 Build Hotfix
+
+USER-REPORTED REGRESSION
+------------------------
+Observed LinkedIn Easy Apply question:
+  Do you have experience with Edge Device Update Management?*
+Native select options:
+  Select an option / Yes / No
+Observed LinkedIn validation:
+  Please enter a valid answer
+
+ROOT CAUSES FOUND
+-----------------
+1. A native select placeholder could be surfaced as the current value and therefore be mistaken for an already-filled control.
+2. Answer-type inference previously searched for the substring "date" in question text. The word "Update" contains "date", so the observed Yes/No question could be misclassified as a date question before the boolean fallback ran.
+3. LinkedIn native radio/checkbox inputs can be visually hidden while their labels are the real click targets. Relying on input.is_displayed() can therefore skip a valid control.
+4. Custom combobox handling could treat a successful click as sufficient without proving that the selected option was actually committed by the live DOM.
+
+FIXES
+-----
+- Boolean choice structure and stable raw values (Yes/No, true/false, 1/0) now outrank wording-based inference.
+- Date-word fallback now uses word boundaries, so Update / candidate / validate are not dates.
+- Native select placeholders never count as answers. First empty-value options, disabled/hidden options and known placeholder labels are excluded.
+- Native select selection has three routes and post-write verification:
+  1) Selenium Select API
+  2) concrete option click
+  3) native HTMLSelectElement value setter/selectedIndex plus input/change/blur events
+- The bot re-reads selected indices and rejects a remaining placeholder or aria-invalid=true state before proceeding.
+- Native radio/checkbox controls prefer their visible label click, then direct click, then the native checked setter plus input/change events; selection is re-read afterward.
+- Native radio grouping prefers the input name so separate questions cannot accidentally be merged by a broad form ancestor.
+- ARIA radio/checkbox/switch are handled through aria-checked.
+- ARIA combobox selection is verified using aria-selected, aria-activedescendant, committed value/text, aria-expanded and aria-invalid.
+- Required controls are re-inspected after React/SDUI processes all events.
+- File inputs are now restricted to controls discovered inside the active Easy Apply form/dialog instead of all file inputs on the LinkedIn page.
+
+CURRENT EASY APPLY CONTROL-FAMILY REVIEW
+----------------------------------------
+The implementation was compared with a contemporary public LinkedIn Easy Apply automation implementation that currently handles:
+- text inputs
+- input[role=combobox] / autocomplete controls
+- textarea
+- native select dropdowns
+- native checkboxes
+- native radio groups under data-test-form-builder-radio-button-form-component
+- dropdowns under .fb-dash-form-element select
+- checkbox fieldsets under data-test-checkbox-form-component
+
+v2.8's scoped scanner covers those families plus:
+- input text/search/email/tel/url/password (where present)
+- input number/range
+- input date/month/week/time/datetime-local
+- textarea
+- native select-one / select-multiple
+- native radio / checkbox
+- input[type=file] through the scoped upload path
+- ARIA combobox
+- ARIA radio
+- ARIA checkbox
+- ARIA switch
+- ARIA spinbutton
+- contenteditable / ARIA textbox controls
+- controls inside open Shadow DOM used by SDUI
+
+REGRESSION TESTS
+----------------
+Full suite:
+  79 passed
+
+Dedicated Easy Apply form-control regression suite:
+  9 passed
+
+Explicit scenarios covered:
+- Edge Device Update Management + native Yes/No select => inferred BOOLEAN, not DATE
+- Select an option placeholder => current answer is empty
+- Automatic default_boolean_answer=No => native select commits No and deselects placeholder
+- Full _handle_simple_control path => observed Edge Device Update question commits No
+- Hidden native radio => selectable through visible label and verified
+- Localized/unknown radio labels + raw true/false values => default No maps to the false option
+- Localized/unknown select labels + raw true/false values => default No maps to the false option
+- Required single checkbox => automatic required-checkbox path commits a valid checked state
+- Optional single checkbox + default Yes => checkbox is checked
+
+OTHER VALIDATION
+----------------
+- python -m compileall: PASS
+- Tk GUI smoke under virtual display: PASS
+  - title: autojobs
+  - default geometry: 1240x830
+  - small geometry: 760x600
+  - five tabs loaded
+- v2.7.1 PowerShell/build.log hotfix retained.
+- version bumped consistently to 2.8.0 in Python package, Inno Setup, build_windows.ps1 and GitHub Actions.
+- git patch apply --check against clean v2.7.1: PASS
+- patch applied tree compared file-by-file with final v2.8 source: PASS
+
+IMPORTANT VALIDATION LIMIT
+--------------------------
+This execution environment cannot perform an authenticated live LinkedIn Easy Apply run using the user's LinkedIn session, and the container does not have a working real Selenium installation available from the network. Therefore no claim is made that an authenticated production LinkedIn application was submitted from this container.
+
+The regression is nevertheless reproduced at the exact control/resolution level from the supplied screenshot, and the implementation is aligned with the input families/selectors in a contemporary public LinkedIn Easy Apply implementation. Future LinkedIn markup changes can still require selector updates; the persistent log and post-fill verification are designed to expose such changes instead of silently treating an invalid control as filled.

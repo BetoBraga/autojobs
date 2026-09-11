@@ -1,0 +1,1532 @@
+{
+  "schema": "linkedin-easy-apply-answer-profile",
+  "version": 2,
+  "exported_at": "2026-09-09T22:56:11.489470+00:00",
+  "defaults": {
+    "numeric": "0",
+    "text": "N/A",
+    "boolean": "No",
+    "social_question_strategy": "prefer_not_to_say",
+    "automatic_choice_strategy": "first_valid"
+  },
+  "profile_answers": {
+    "ie_work_authorized": "",
+    "ie_sponsorship": "",
+    "ie_current_permission": "",
+    "ie_stamp": "",
+    "ie_employment_permit": "",
+    "eu_eea_citizen": "",
+    "irish_citizen": "",
+    "nationality": "",
+    "passport_country": "",
+    "permit_expiry": "",
+    "current_location": "",
+    "dublin_based": "",
+    "commute_dublin": "",
+    "relocate_dublin": "",
+    "relocation_needed": "",
+    "hybrid_days": "",
+    "hybrid_ok": "",
+    "remote_ok": "",
+    "travel_percent": "",
+    "travel_willing": "",
+    "driving_licence": "",
+    "own_vehicle": "",
+    "start_date": "",
+    "notice_period": "",
+    "available_immediately": "",
+    "full_time": "",
+    "part_time": "",
+    "contract_ok": "",
+    "shift_work": "",
+    "weekends": "",
+    "evenings": "",
+    "overtime": "",
+    "working_hours": "",
+    "salary_expectation": "",
+    "salary_currency": "",
+    "salary_range": "",
+    "hourly_rate": "",
+    "current_salary": "",
+    "compensation_flexible": "",
+    "years_total_experience": "",
+    "years_role_experience": "",
+    "management_years": "",
+    "team_size": "",
+    "skill_proficiency": "",
+    "specific_skill_years": "",
+    "industry_experience": "",
+    "leadership_experience": "",
+    "customer_facing": "",
+    "sales_experience": "",
+    "support_experience": "",
+    "portfolio_url": "",
+    "github_url": "",
+    "website_url": "",
+    "linkedin_url": "",
+    "highest_education": "",
+    "degree_field": "",
+    "university": "",
+    "graduation_year": "",
+    "certification": "",
+    "certification_name": "",
+    "english_fluent": "",
+    "english_level": "",
+    "irish_language": "",
+    "language_other": "",
+    "background_check": "",
+    "garda_vetting": "",
+    "drug_test": "",
+    "reference_check": "",
+    "non_compete": "",
+    "conflict_interest": "",
+    "relative_employee": "",
+    "previous_employee": "",
+    "previous_applied": "",
+    "criminal_conviction": "",
+    "security_clearance": "",
+    "nda": "",
+    "why_interested": "",
+    "why_company": "",
+    "why_fit": "",
+    "cover_note": "",
+    "achievement": "",
+    "referral": "",
+    "referred_by": "",
+    "first_name": "",
+    "last_name": "",
+    "preferred_name": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "city": "",
+    "county": "",
+    "postal_code": "",
+    "country": "",
+    "pronouns": "",
+    "gender": "",
+    "sex": "",
+    "transgender": "",
+    "ethnicity": "",
+    "race": "",
+    "disability": "",
+    "reasonable_accommodation": "",
+    "veteran": "",
+    "military_service": "",
+    "sexual_orientation": "",
+    "religion": "",
+    "civil_status": "",
+    "family_status": "",
+    "traveller_community": "",
+    "roma_identity": "",
+    "age_band": "",
+    "date_of_birth": ""
+  },
+  "questions": [
+    {
+      "key": "ie_work_authorized",
+      "question": "Legally authorised to work in Ireland",
+      "category": "Ireland & work eligibility",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "ie_sponsorship",
+      "question": "Require employment permit / visa sponsorship now or in future",
+      "category": "Ireland & work eligibility",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "ie_current_permission",
+      "question": "Current Irish immigration / work permission",
+      "category": "Ireland & work eligibility",
+      "type": "choice",
+      "choices": [
+        "Irish / EU / EEA / Swiss citizen",
+        "Stamp 1",
+        "Stamp 1G",
+        "Stamp 2",
+        "Stamp 3",
+        "Stamp 4",
+        "Stamp 4 EUFAM",
+        "Employment Permit",
+        "Other",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "ie_stamp",
+      "question": "Irish immigration Stamp",
+      "category": "Ireland & work eligibility",
+      "type": "choice",
+      "choices": [
+        "Stamp 1",
+        "Stamp 1G",
+        "Stamp 2",
+        "Stamp 3",
+        "Stamp 4",
+        "Stamp 4 EUFAM",
+        "Not applicable",
+        "Other"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "ie_employment_permit",
+      "question": "Irish employment permit type",
+      "category": "Ireland & work eligibility",
+      "type": "choice",
+      "choices": [
+        "Critical Skills Employment Permit",
+        "General Employment Permit",
+        "Other employment permit",
+        "Not required",
+        "Not applicable"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "eu_eea_citizen",
+      "question": "EU / EEA / Swiss citizen",
+      "category": "Ireland & work eligibility",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "irish_citizen",
+      "question": "Irish citizen",
+      "category": "Ireland & work eligibility",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "nationality",
+      "question": "Nationality / citizenship",
+      "category": "Ireland & work eligibility",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "passport_country",
+      "question": "Passport issuing country",
+      "category": "Ireland & work eligibility",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "permit_expiry",
+      "question": "Work permission / permit expiry date",
+      "category": "Ireland & work eligibility",
+      "type": "date",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "current_location",
+      "question": "Current city / location",
+      "category": "Availability & logistics",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "dublin_based",
+      "question": "Currently based in Dublin",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "commute_dublin",
+      "question": "Able to commute to Dublin",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "relocate_dublin",
+      "question": "Willing to relocate to Dublin / Ireland",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "relocation_needed",
+      "question": "Relocation assistance required",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "hybrid_days",
+      "question": "Days per week available in office",
+      "category": "Availability & logistics",
+      "type": "numeric",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "hybrid_ok",
+      "question": "Comfortable with hybrid working",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "remote_ok",
+      "question": "Able to work remotely",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "travel_percent",
+      "question": "Percentage willing to travel",
+      "category": "Availability & logistics",
+      "type": "numeric",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "travel_willing",
+      "question": "Willing to travel for work",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "driving_licence",
+      "question": "Valid driving licence",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "own_vehicle",
+      "question": "Access to own vehicle",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "start_date",
+      "question": "Earliest start date",
+      "category": "Availability & logistics",
+      "type": "date",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "notice_period",
+      "question": "Notice period",
+      "category": "Availability & logistics",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "available_immediately",
+      "question": "Available to start immediately",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "full_time",
+      "question": "Available for full-time work",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "part_time",
+      "question": "Available for part-time work",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "contract_ok",
+      "question": "Open to contract work",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "shift_work",
+      "question": "Available for shift work",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "weekends",
+      "question": "Available to work weekends",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "evenings",
+      "question": "Available to work evenings / nights",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "overtime",
+      "question": "Available for overtime",
+      "category": "Availability & logistics",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "working_hours",
+      "question": "Preferred / available working hours",
+      "category": "Availability & logistics",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "salary_expectation",
+      "question": "Salary expectation",
+      "category": "Compensation",
+      "type": "numeric",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "salary_currency",
+      "question": "Salary currency",
+      "category": "Compensation",
+      "type": "choice",
+      "choices": [
+        "EUR",
+        "GBP",
+        "USD",
+        "Other"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "salary_range",
+      "question": "Expected salary range",
+      "category": "Compensation",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "hourly_rate",
+      "question": "Hourly / daily rate",
+      "category": "Compensation",
+      "type": "numeric",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "current_salary",
+      "question": "Current salary / compensation",
+      "category": "Compensation",
+      "type": "numeric",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "compensation_flexible",
+      "question": "Compensation expectations flexible",
+      "category": "Compensation",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "years_total_experience",
+      "question": "Total years of professional experience",
+      "category": "Experience & skills",
+      "type": "numeric",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "years_role_experience",
+      "question": "Years of relevant experience",
+      "category": "Experience & skills",
+      "type": "numeric",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "management_years",
+      "question": "Years of people-management experience",
+      "category": "Experience & skills",
+      "type": "numeric",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "team_size",
+      "question": "Largest team managed",
+      "category": "Experience & skills",
+      "type": "numeric",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "skill_proficiency",
+      "question": "Skill proficiency / expertise",
+      "category": "Experience & skills",
+      "type": "choice",
+      "choices": [
+        "Beginner",
+        "Intermediate",
+        "Advanced",
+        "Expert"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "specific_skill_years",
+      "question": "Years using a specific technology / skill",
+      "category": "Experience & skills",
+      "type": "numeric",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "industry_experience",
+      "question": "Industry experience",
+      "category": "Experience & skills",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "leadership_experience",
+      "question": "Leadership experience",
+      "category": "Experience & skills",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "customer_facing",
+      "question": "Customer-facing experience",
+      "category": "Experience & skills",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "sales_experience",
+      "question": "Sales experience",
+      "category": "Experience & skills",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "support_experience",
+      "question": "Technical / customer support experience",
+      "category": "Experience & skills",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "portfolio_url",
+      "question": "Portfolio URL",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "github_url",
+      "question": "GitHub profile URL",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "website_url",
+      "question": "Personal website",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "linkedin_url",
+      "question": "LinkedIn profile URL",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "highest_education",
+      "question": "Highest level of education",
+      "category": "Education & credentials",
+      "type": "choice",
+      "choices": [
+        "Secondary school",
+        "Certificate",
+        "Diploma",
+        "Bachelor's degree",
+        "Master's degree",
+        "Doctorate / PhD",
+        "Other"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "degree_field",
+      "question": "Field of study / degree",
+      "category": "Education & credentials",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "university",
+      "question": "University / institution",
+      "category": "Education & credentials",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "graduation_year",
+      "question": "Graduation year",
+      "category": "Education & credentials",
+      "type": "numeric",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "certification",
+      "question": "Required certification / licence",
+      "category": "Education & credentials",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "certification_name",
+      "question": "Certification / licence details",
+      "category": "Education & credentials",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "english_fluent",
+      "question": "Fluent / professional English",
+      "category": "Languages",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "english_level",
+      "question": "English proficiency level",
+      "category": "Languages",
+      "type": "choice",
+      "choices": [
+        "Basic",
+        "Conversational",
+        "Professional working",
+        "Full professional",
+        "Native / bilingual"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "irish_language",
+      "question": "Irish language proficiency",
+      "category": "Languages",
+      "type": "choice",
+      "choices": [
+        "None",
+        "Basic",
+        "Conversational",
+        "Professional",
+        "Fluent / native"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "language_other",
+      "question": "Other language proficiency",
+      "category": "Languages",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "background_check",
+      "question": "Willing / able to pass background check",
+      "category": "Compliance & screening",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "garda_vetting",
+      "question": "Able / willing to complete Garda vetting",
+      "category": "Compliance & screening",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "drug_test",
+      "question": "Willing to take drug test",
+      "category": "Compliance & screening",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "reference_check",
+      "question": "Consent to reference checks",
+      "category": "Compliance & screening",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "non_compete",
+      "question": "Subject to non-compete / restrictive covenant",
+      "category": "Compliance & screening",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "conflict_interest",
+      "question": "Potential conflict of interest",
+      "category": "Compliance & screening",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "relative_employee",
+      "question": "Relative / close relation employed by company",
+      "category": "Compliance & screening",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "previous_employee",
+      "question": "Previously employed by this company",
+      "category": "Compliance & screening",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "previous_applied",
+      "question": "Previously applied / interviewed here",
+      "category": "Compliance & screening",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "criminal_conviction",
+      "question": "Criminal conviction question",
+      "category": "Compliance & screening",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "security_clearance",
+      "question": "Security clearance",
+      "category": "Compliance & screening",
+      "type": "choice",
+      "choices": [
+        "None",
+        "Eligible",
+        "Current clearance",
+        "Other"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "nda",
+      "question": "Willing to sign NDA / confidentiality agreement",
+      "category": "Compliance & screening",
+      "type": "boolean",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "why_interested",
+      "question": "Why are you interested in this role?",
+      "category": "Motivation & free text",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "why_company",
+      "question": "Why do you want to work for this company?",
+      "category": "Motivation & free text",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "why_fit",
+      "question": "Why are you a good fit?",
+      "category": "Motivation & free text",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "cover_note",
+      "question": "Cover note / additional information",
+      "category": "Motivation & free text",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "achievement",
+      "question": "Relevant achievement / example",
+      "category": "Motivation & free text",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "referral",
+      "question": "How did you hear about this role?",
+      "category": "Motivation & free text",
+      "type": "choice",
+      "choices": [
+        "LinkedIn",
+        "Company website",
+        "Recruiter",
+        "Employee referral",
+        "Job board",
+        "Other"
+      ],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "referred_by",
+      "question": "Employee referral name",
+      "category": "Motivation & free text",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "first_name",
+      "question": "First name",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "last_name",
+      "question": "Last name",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "preferred_name",
+      "question": "Preferred name",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "email",
+      "question": "Email address",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "phone",
+      "question": "Phone number",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "address",
+      "question": "Address",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "city",
+      "question": "City",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "county",
+      "question": "County",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "postal_code",
+      "question": "Eircode / postal code",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "country",
+      "question": "Country of residence",
+      "category": "Profile & contact",
+      "type": "text",
+      "choices": [],
+      "dublin_recommended": true,
+      "social": false,
+      "answer": ""
+    },
+    {
+      "key": "pronouns",
+      "question": "Pronouns",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "he/him",
+        "she/her",
+        "they/them",
+        "Other",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": false,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "gender",
+      "question": "Gender",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Man",
+        "Woman",
+        "Non-binary",
+        "Other",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": false,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "sex",
+      "question": "Sex",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Male",
+        "Female",
+        "Intersex",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": false,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "transgender",
+      "question": "Transgender identity",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Yes",
+        "No",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": false,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "ethnicity",
+      "question": "Ethnic group / background",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Irish",
+        "Irish Traveller",
+        "Roma",
+        "Other White background",
+        "African",
+        "Other Black background",
+        "Chinese",
+        "Indian/Pakistani/Bangladeshi",
+        "Other Asian background",
+        "Arabic",
+        "Mixed background",
+        "Other",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": true,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "race",
+      "question": "Race",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "White",
+        "Black",
+        "Asian",
+        "Mixed",
+        "Other",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": false,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "disability",
+      "question": "Disability",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Yes",
+        "No",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": true,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "reasonable_accommodation",
+      "question": "Need reasonable accommodation / workplace adjustment",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Yes",
+        "No",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": true,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "veteran",
+      "question": "Veteran status",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Yes",
+        "No",
+        "Prefer not to say",
+        "Decline to self-identify"
+      ],
+      "dublin_recommended": false,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "military_service",
+      "question": "Military / armed forces service",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Yes",
+        "No",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": false,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "sexual_orientation",
+      "question": "Sexual orientation",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Heterosexual / straight",
+        "Gay",
+        "Lesbian",
+        "Bisexual",
+        "Other",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": false,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "religion",
+      "question": "Religion / belief",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "No religion",
+        "Roman Catholic",
+        "Church of Ireland",
+        "Islam",
+        "Orthodox Christian",
+        "Presbyterian",
+        "Other",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": true,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "civil_status",
+      "question": "Civil / marital status",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Single",
+        "Married",
+        "Civil partnership",
+        "Separated",
+        "Divorced",
+        "Widowed",
+        "Other",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": true,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "family_status",
+      "question": "Family / carer status",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Yes",
+        "No",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": true,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "traveller_community",
+      "question": "Member of the Traveller community",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Yes",
+        "No",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": true,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "roma_identity",
+      "question": "Roma identity",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Yes",
+        "No",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": true,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "age_band",
+      "question": "Age band",
+      "category": "Social & diversity",
+      "type": "choice",
+      "choices": [
+        "Under 18",
+        "18-24",
+        "25-34",
+        "35-44",
+        "45-54",
+        "55-64",
+        "65+",
+        "Prefer not to say"
+      ],
+      "dublin_recommended": false,
+      "social": true,
+      "answer": ""
+    },
+    {
+      "key": "date_of_birth",
+      "question": "Date of birth",
+      "category": "Social & diversity",
+      "type": "date",
+      "choices": [],
+      "dublin_recommended": false,
+      "social": true,
+      "answer": ""
+    }
+  ],
+  "learned_answers": {},
+  "learned_field_signatures": {}
+}

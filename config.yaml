@@ -1,0 +1,55 @@
+# CLI compatibility configuration. The desktop app (app.py) is recommended.
+positions:
+  - Software Engineer
+locations:
+  - Worldwide
+
+phone_number: ""
+salary: ""
+rate: ""
+
+uploads:
+  Resume: ""
+  Cover Letter: ""
+
+# Current LinkedIn filter values: 1 Internship, 2 Entry, 3 Associate,
+# 4 Mid-Senior, 5 Director, 6 Executive.
+experience_level: []
+# 1 On-site, 2 Remote, 3 Hybrid.
+work_types: []
+# "", r86400, r604800, r2592000
+date_posted: r86400
+
+blacklist: []
+blackListTitles: []
+max_applications: 10
+max_pages_per_search: 3
+review_before_submit: true
+follow_company: false
+# Run Chrome without a visible window. Requires an already-authenticated saved session.
+headless_browser: false
+
+# supervised: prompt for missing required answers and remember them.
+# automatic: do not prompt; use the typed defaults below.
+run_mode: supervised
+default_numeric_answer: "0"
+default_text_answer: "N/A"
+default_boolean_answer: "No"
+# prefer_not_to_say | use_defaults
+social_question_strategy: prefer_not_to_say
+# first_valid keeps Automatic mode moving on unknown select/radio questions in any language.
+automatic_choice_strategy: first_valid
+# Legacy compatibility field. v2.9.1 no longer uses this as the default gate.
+strict_location_filter: false
+# Location scopes the LinkedIn search; post-open rejection is OFF by default for maximum coverage.
+post_open_location_filter: false
+
+# Stable optional fields from the GUI question catalog, e.g.:
+profile_answers:
+  # ie_work_authorized: "Yes"
+  # ie_sponsorship: "No"
+  # hybrid_days: "3"
+
+# Exact/learned recruiter question text can also be supplied here.
+answers: {}
+output_filename: []

@@ -1,0 +1,178 @@
+AUTOJOBS ANSWER-PROFILE GENERATOR PROMPT
+======================================
+
+TASK
+----
+You are preparing an importable autojobs answer profile using the resume/CV PDF uploaded with this prompt.
+
+DELIVERY REQUIREMENT: create and attach/download a real file named exactly:
+import_me_on_autojobs.json
+
+The file contents must be valid JSON only. Do not put markdown fences or explanatory text inside the file. If your current ChatGPT interface can create files, ALWAYS create the file instead of merely pasting JSON into chat.
+
+CORE RULES
+----------
+1. Use every factual detail supported by the resume/CV, including conservative logical or mathematical deductions that follow directly from those facts. The goal is to fill as much of the answer profile as can be truthfully established, not only sentences copied verbatim from the CV.
+2. You MAY derive non-sensitive facts when the derivation is reliable. Examples: calculate experience duration from dated roles without double-counting overlapping periods; derive graduation year from a dated degree; normalize a clearly stated contact location into city/region/country; expand an unambiguous geographic abbreviation; combine address components into a complete location.
+3. LOCATION IS IMPORTANT. If the CV states a current/contact location, produce the most complete factual form that can be safely established. Example: "Dublin, Ireland" may become "Dublin, County Dublin, Ireland"; "Santos, SP, Brazil" may become "Santos, São Paulo, Brazil". Populate current_location, city, county/region, country, address and postal_code when those components are supported. Do NOT infer current residence merely from a past employer, university, client, or project location.
+4. Fill all non-sensitive profile fields that can be established from the CV: names, contact details, URLs, education, certifications, employers, skills, factual experience indicators, role/industry/support/leadership experience, languages when explicitly evidenced, and dated experience calculations when reliable.
+5. If a fact cannot be supported or reliably derived, use an empty string: "". Never invent employers, dates, degrees, certifications, technologies, metrics, salary, notice period, availability, driving licence, security clearance, or other unsupported facts.
+6. Work authorization, citizenship, nationality, visa/permit status, Irish Stamp, sponsorship need, and similar legal/immigration facts must be explicit in the CV or other user-provided factual material. Do not infer them from location, employer, language, name, or education.
+7. For social/diversity/sensitive questions, do not infer anything from names, photos, pronouns, schools, countries, languages, addresses, or other indirect signals. Leave the answer blank unless the user explicitly provided that fact for this purpose. Prefer privacy over guessing.
+8. For Yes/No or multiple-choice questions, use an exact listed choice when the CV clearly supports it. Otherwise leave it blank.
+9. For free-text answers, be professional, polite, concise, factual, and directly relevant. EACH individual answer must be 230 characters or fewer, including spaces.
+10. Avoid exaggerated claims, buzzword stuffing, first-person boasting, unsupported seniority, or invented metrics.
+11. When calculating years of experience from dates, use the actual timeline and avoid double-counting overlapping jobs. If a technology is tied to a clearly dated role/project, you may derive a conservative duration. If dates are ambiguous, leave the numeric answer blank.
+12. For generic factual free-text fields such as cover_note, why_fit, or achievement, you may create a short professional answer using only demonstrated CV facts. Leave role/company-specific motivation fields blank when the job/company context is not supplied.
+13. Keep every key listed in the catalog below, even when the answer is blank.
+14. learned_answers must be an empty object unless the user separately provided exact recruiter questions and answers.
+
+REQUIRED FILE CONTENTS
+----------------------
+The file import_me_on_autojobs.json must contain an object exactly in this general structure:
+{
+  "schema": "linkedin-easy-apply-answer-profile",
+  "version": 2,
+  "defaults": {
+    "numeric": "0",
+    "text": "N/A",
+    "boolean": "No",
+    "social_question_strategy": "prefer_not_to_say"
+  },
+  "profile_answers": {
+    "<every exact key from the catalog below>": "<answer or empty string>"
+  },
+  "learned_answers": {}
+}
+
+IMPORTANT: Do not omit blank questions. profile_answers must contain ALL catalog keys below exactly once.
+
+ANSWER STYLE
+------------
+When a factual free-text response can be derived from the CV, make it sound like a strong but truthful job applicant: professional, polite, clear, and short. Never exceed 230 characters for a single answer.
+
+QUESTION CATALOG
+----------------
+Format: key | type | category | question | allowed choices (if any)
+ie_work_authorized | boolean | Ireland & work eligibility | Legally authorised to work in Ireland | Yes / No
+ie_sponsorship | boolean | Ireland & work eligibility | Require employment permit / visa sponsorship now or in future | Yes / No
+ie_current_permission | choice | Ireland & work eligibility | Current Irish immigration / work permission | Irish / EU / EEA / Swiss citizen / Stamp 1 / Stamp 1G / Stamp 2 / Stamp 3 / Stamp 4 / Stamp 4 EUFAM / Employment Permit / Other / Prefer not to say
+ie_stamp | choice | Ireland & work eligibility | Irish immigration Stamp | Stamp 1 / Stamp 1G / Stamp 2 / Stamp 3 / Stamp 4 / Stamp 4 EUFAM / Not applicable / Other
+ie_employment_permit | choice | Ireland & work eligibility | Irish employment permit type | Critical Skills Employment Permit / General Employment Permit / Other employment permit / Not required / Not applicable
+eu_eea_citizen | boolean | Ireland & work eligibility | EU / EEA / Swiss citizen | Yes / No
+irish_citizen | boolean | Ireland & work eligibility | Irish citizen | Yes / No
+nationality | text | Ireland & work eligibility | Nationality / citizenship | free text
+passport_country | text | Ireland & work eligibility | Passport issuing country | free text
+permit_expiry | date | Ireland & work eligibility | Work permission / permit expiry date | free text
+current_location | text | Availability & logistics | Current city / location | free text
+dublin_based | boolean | Availability & logistics | Currently based in Dublin | Yes / No
+commute_dublin | boolean | Availability & logistics | Able to commute to Dublin | Yes / No
+relocate_dublin | boolean | Availability & logistics | Willing to relocate to Dublin / Ireland | Yes / No
+relocation_needed | boolean | Availability & logistics | Relocation assistance required | Yes / No
+hybrid_days | numeric | Availability & logistics | Days per week available in office | free text
+hybrid_ok | boolean | Availability & logistics | Comfortable with hybrid working | Yes / No
+remote_ok | boolean | Availability & logistics | Able to work remotely | Yes / No
+travel_percent | numeric | Availability & logistics | Percentage willing to travel | free text
+travel_willing | boolean | Availability & logistics | Willing to travel for work | Yes / No
+driving_licence | boolean | Availability & logistics | Valid driving licence | Yes / No
+own_vehicle | boolean | Availability & logistics | Access to own vehicle | Yes / No
+start_date | date | Availability & logistics | Earliest start date | free text
+notice_period | text | Availability & logistics | Notice period | free text
+available_immediately | boolean | Availability & logistics | Available to start immediately | Yes / No
+full_time | boolean | Availability & logistics | Available for full-time work | Yes / No
+part_time | boolean | Availability & logistics | Available for part-time work | Yes / No
+contract_ok | boolean | Availability & logistics | Open to contract work | Yes / No
+shift_work | boolean | Availability & logistics | Available for shift work | Yes / No
+weekends | boolean | Availability & logistics | Available to work weekends | Yes / No
+evenings | boolean | Availability & logistics | Available to work evenings / nights | Yes / No
+overtime | boolean | Availability & logistics | Available for overtime | Yes / No
+working_hours | text | Availability & logistics | Preferred / available working hours | free text
+salary_expectation | numeric | Compensation | Salary expectation | free text
+salary_currency | choice | Compensation | Salary currency | EUR / GBP / USD / Other
+salary_range | text | Compensation | Expected salary range | free text
+hourly_rate | numeric | Compensation | Hourly / daily rate | free text
+current_salary | numeric | Compensation | Current salary / compensation | free text
+compensation_flexible | boolean | Compensation | Compensation expectations flexible | Yes / No
+years_total_experience | numeric | Experience & skills | Total years of professional experience | free text
+years_role_experience | numeric | Experience & skills | Years of relevant experience | free text
+management_years | numeric | Experience & skills | Years of people-management experience | free text
+team_size | numeric | Experience & skills | Largest team managed | free text
+skill_proficiency | choice | Experience & skills | Skill proficiency / expertise | Beginner / Intermediate / Advanced / Expert
+specific_skill_years | numeric | Experience & skills | Years using a specific technology / skill | free text
+industry_experience | boolean | Experience & skills | Industry experience | Yes / No
+leadership_experience | boolean | Experience & skills | Leadership experience | Yes / No
+customer_facing | boolean | Experience & skills | Customer-facing experience | Yes / No
+sales_experience | boolean | Experience & skills | Sales experience | Yes / No
+support_experience | boolean | Experience & skills | Technical / customer support experience | Yes / No
+portfolio_url | text | Profile & contact | Portfolio URL | free text
+github_url | text | Profile & contact | GitHub profile URL | free text
+website_url | text | Profile & contact | Personal website | free text
+linkedin_url | text | Profile & contact | LinkedIn profile URL | free text
+highest_education | choice | Education & credentials | Highest level of education | Secondary school / Certificate / Diploma / Bachelor's degree / Master's degree / Doctorate / PhD / Other
+degree_field | text | Education & credentials | Field of study / degree | free text
+university | text | Education & credentials | University / institution | free text
+graduation_year | numeric | Education & credentials | Graduation year | free text
+certification | boolean | Education & credentials | Required certification / licence | Yes / No
+certification_name | text | Education & credentials | Certification / licence details | free text
+english_fluent | boolean | Languages | Fluent / professional English | Yes / No
+english_level | choice | Languages | English proficiency level | Basic / Conversational / Professional working / Full professional / Native / bilingual
+irish_language | choice | Languages | Irish language proficiency | None / Basic / Conversational / Professional / Fluent / native
+language_other | text | Languages | Other language proficiency | free text
+background_check | boolean | Compliance & screening | Willing / able to pass background check | Yes / No
+garda_vetting | boolean | Compliance & screening | Able / willing to complete Garda vetting | Yes / No
+drug_test | boolean | Compliance & screening | Willing to take drug test | Yes / No
+reference_check | boolean | Compliance & screening | Consent to reference checks | Yes / No
+non_compete | boolean | Compliance & screening | Subject to non-compete / restrictive covenant | Yes / No
+conflict_interest | boolean | Compliance & screening | Potential conflict of interest | Yes / No
+relative_employee | boolean | Compliance & screening | Relative / close relation employed by company | Yes / No
+previous_employee | boolean | Compliance & screening | Previously employed by this company | Yes / No
+previous_applied | boolean | Compliance & screening | Previously applied / interviewed here | Yes / No
+criminal_conviction | boolean | Compliance & screening [SENSITIVE/SOCIAL] | Criminal conviction question | Yes / No
+security_clearance | choice | Compliance & screening | Security clearance | None / Eligible / Current clearance / Other
+nda | boolean | Compliance & screening | Willing to sign NDA / confidentiality agreement | Yes / No
+why_interested | text | Motivation & free text | Why are you interested in this role? | free text
+why_company | text | Motivation & free text | Why do you want to work for this company? | free text
+why_fit | text | Motivation & free text | Why are you a good fit? | free text
+cover_note | text | Motivation & free text | Cover note / additional information | free text
+achievement | text | Motivation & free text | Relevant achievement / example | free text
+referral | choice | Motivation & free text | How did you hear about this role? | LinkedIn / Company website / Recruiter / Employee referral / Job board / Other
+referred_by | text | Motivation & free text | Employee referral name | free text
+first_name | text | Profile & contact | First name | free text
+last_name | text | Profile & contact | Last name | free text
+preferred_name | text | Profile & contact | Preferred name | free text
+email | text | Profile & contact | Email address | free text
+phone | text | Profile & contact | Phone number | free text
+address | text | Profile & contact | Address | free text
+city | text | Profile & contact | City | free text
+county | text | Profile & contact | County | free text
+postal_code | text | Profile & contact | Eircode / postal code | free text
+country | text | Profile & contact | Country of residence | free text
+pronouns | choice | Social & diversity [SENSITIVE/SOCIAL] | Pronouns | he/him / she/her / they/them / Other / Prefer not to say
+gender | choice | Social & diversity [SENSITIVE/SOCIAL] | Gender | Man / Woman / Non-binary / Other / Prefer not to say
+sex | choice | Social & diversity [SENSITIVE/SOCIAL] | Sex | Male / Female / Intersex / Prefer not to say
+transgender | choice | Social & diversity [SENSITIVE/SOCIAL] | Transgender identity | Yes / No / Prefer not to say
+ethnicity | choice | Social & diversity [SENSITIVE/SOCIAL] | Ethnic group / background | Irish / Irish Traveller / Roma / Other White background / African / Other Black background / Chinese / Indian/Pakistani/Bangladeshi / Other Asian background / Arabic / Mixed background / Other / Prefer not to say
+race | choice | Social & diversity [SENSITIVE/SOCIAL] | Race | White / Black / Asian / Mixed / Other / Prefer not to say
+disability | choice | Social & diversity [SENSITIVE/SOCIAL] | Disability | Yes / No / Prefer not to say
+reasonable_accommodation | choice | Social & diversity [SENSITIVE/SOCIAL] | Need reasonable accommodation / workplace adjustment | Yes / No / Prefer not to say
+veteran | choice | Social & diversity [SENSITIVE/SOCIAL] | Veteran status | Yes / No / Prefer not to say / Decline to self-identify
+military_service | choice | Social & diversity [SENSITIVE/SOCIAL] | Military / armed forces service | Yes / No / Prefer not to say
+sexual_orientation | choice | Social & diversity [SENSITIVE/SOCIAL] | Sexual orientation | Heterosexual / straight / Gay / Lesbian / Bisexual / Other / Prefer not to say
+religion | choice | Social & diversity [SENSITIVE/SOCIAL] | Religion / belief | No religion / Roman Catholic / Church of Ireland / Islam / Orthodox Christian / Presbyterian / Other / Prefer not to say
+civil_status | choice | Social & diversity [SENSITIVE/SOCIAL] | Civil / marital status | Single / Married / Civil partnership / Separated / Divorced / Widowed / Other / Prefer not to say
+family_status | choice | Social & diversity [SENSITIVE/SOCIAL] | Family / carer status | Yes / No / Prefer not to say
+traveller_community | choice | Social & diversity [SENSITIVE/SOCIAL] | Member of the Traveller community | Yes / No / Prefer not to say
+roma_identity | choice | Social & diversity [SENSITIVE/SOCIAL] | Roma identity | Yes / No / Prefer not to say
+age_band | choice | Social & diversity [SENSITIVE/SOCIAL] | Age band | Under 18 / 18-24 / 25-34 / 35-44 / 45-54 / 55-64 / 65+ / Prefer not to say
+date_of_birth | date | Social & diversity [SENSITIVE/SOCIAL] | Date of birth | free text
+
+FINAL CHECK BEFORE RESPONDING
+-----------------------------
+- Deliver a ready file named import_me_on_autojobs.json.
+- Valid JSON only inside that file.
+- profile_answers contains exactly 111 catalog keys.
+- Unsupported facts are blank, while reliable non-sensitive deductions from CV facts are included.
+- Sensitive/social facts are never inferred.
+- Every free-text answer is <= 230 characters.
+- Location is normalized/completed when reliably derivable from the CV; legal/immigration status is never inferred from location.
+- No markdown fences and no explanatory text.

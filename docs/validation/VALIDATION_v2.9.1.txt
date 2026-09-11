@@ -1,0 +1,105 @@
+autojobs v2.9.1 validation
+==========================
+
+Purpose
+-------
+Maximize mechanical completion of eligible LinkedIn Easy Apply attempts, make location a search scope instead of a hidden application blocker, reinforce required radio/checkbox activation, and warn users when action delays are unusually aggressive for long unattended runs.
+
+Runtime-log findings that drove the release
+--------------------------------------------
+The supplied v2.8 run showed 38 discovered / 37 processed / 10 applied / 27 shown as skipped / 0 failed.
+The supplied log contained 19 explicit location-conflict filters and four required radio-choice activation failures. It also showed that some location evidence was not a reliable dedicated location value (for example title/company/prose-like strings).
+
+Coverage changes inherited from v2.9.0
+--------------------------------------
+- RunStats separates Filtered and Attempted from Skipped/Failed.
+- Run UI shows Discovered, Processed, Filtered, Attempted, Applied, Skipped and Failed.
+- Easy Apply completion is Applied / Attempted, so intentional filters no longer make form completion look worse than it is.
+- Maximize coverage sets max applications=0 (unlimited), result pages=0 (until exhausted), Any time, no experience/work-model narrowing, Automatic mode, no manual submit review, and autonomous generic-choice fallback.
+- max_pages_per_search=0 continues until exhaustion with a 100-page safety ceiling and a 3-consecutive-no-new-jobs stop.
+- Required radio/checkbox activation re-locates fresh controls after React/SDUI re-render.
+- Required-control completion receives bounded live-DOM retries before an Easy Apply attempt can be skipped.
+- Sensitive demographic questions never use generic first-valid choice. Privacy-preserving options are preferred; otherwise the field remains unresolved.
+- Work-authorisation/citizenship/visa claims never use generic Boolean/text defaults. Explicit profile/learned answers still work; Supervised prompts and learns.
+- Filter reasons are persisted for previous submission, blacklist, already-applied and no-Easy-Apply cases.
+
+v2.9.1 location behavior
+------------------------
+- Added post_open_location_filter as an explicit opt-in secondary gate.
+- post_open_location_filter defaults to False.
+- The legacy strict_location_filter value is forced to False during normalization, so an old config cannot silently re-enable location rejection after upgrading.
+- By default, configured location only scopes the LinkedIn search. Returned jobs continue even when post-open location metadata is missing, broader, remote, inconsistent, or explicitly conflicting.
+- Maximize coverage always disables post-open location rejection.
+- If the user explicitly enables the optional guard, only high-confidence verified conflicts can be filtered.
+
+Direct location compatibility check
+-----------------------------------
+legacy strict_location_filter=true config -> normalized strict_location_filter=False
+legacy config without post_open_location_filter -> post_open_location_filter=False
+Dublin search + Lisbon/Portugal high-confidence job + default settings -> does NOT block
+Dublin search + Lisbon/Portugal high-confidence job + explicit post-open filter enabled -> blocks
+PASS
+
+v2.9.1 required choice reinforcement
+------------------------------------
+Required radio/checkbox activation now tries:
+1. associated label / visible role wrapper click
+2. native safe click
+3. keyboard SPACE on a focusable label/wrapper/custom ARIA control
+4. native checked-property setter with input/change/click events
+5. fresh-DOM re-location and retry after LinkedIn React/SDUI re-render
+6. live re-inspection before Next/Review/Submit
+
+The regression suite includes a keyboard-only radio path where click routes intentionally fail and SPACE commits the selection.
+
+Delay warning / throttling guard
+--------------------------------
+- New default action delay: 3-7 seconds.
+- Existing older configs are not silently rewritten; for example 2-4 seconds remains 2-4, but it is classified as aggressive and triggers warnings.
+- Inline warning appears beside delay controls for aggressive ranges.
+- Starting a run with an aggressive range displays a confirmation warning.
+- The warning mentions possible throttling, challenge prompts, or temporary restrictions sometimes described as a soft ban.
+- Persistent runtime log also records the aggressive-delay warning.
+- Maximize coverage raises overly aggressive delays to at least 3-7 seconds.
+- LinkedIn does not publish a guaranteed safe interval; 3-7 seconds is deliberately presented as a conservative UX baseline, not a guarantee against account limits.
+
+Direct delay check
+------------------
+2-4 sec -> aggressive=True
+3-7 sec -> aggressive=False
+warning text mentions soft ban and no guaranteed safe interval
+PASS
+
+Automated validation
+--------------------
+Full pytest suite with Selenium import stubs: 93 passed.
+Focused form-controls + answer-engine + autocomplete + config suite: 63 passed.
+python -m compileall -q .: PASS.
+
+GUI smoke under Xvfb
+--------------------
+- title: autojobs
+- 10 themes loaded
+- old config containing strict_location_filter=true loads post_open_location_filter=False
+- aggressive 1-2 second delay produces inline soft-ban/throttling warning
+- pre-run aggressive-delay confirmation path exercised
+- Maximize coverage disables post-open location filtering
+- Maximize coverage raises delays to 3-7 seconds
+- responsive geometry exercised at 760x600, 1000x700 and 1400x900
+PASS
+
+Build/package validation
+------------------------
+- Windows build/package/installer version is 2.9.1.
+- build_windows.ps1 retains fail-fast Invoke-Checked behavior and transcript logging.
+- build_windows.bat creates/captures build.log before PowerShell execution.
+- portable build is configured to produce dist/autojobs.exe plus editable companion files and release/autojobs-v2.9.1-portable-win64.zip.
+- destination computer does not require Python; Google Chrome is required.
+
+Environment limitation
+----------------------
+This Linux validation environment does not have the user's authenticated LinkedIn/Chrome session and cannot perform a real submission on that account. Selenium is represented by import/test stubs for unit/GUI validation. The release is grounded in the supplied real runtime log and deterministic regression tests for the exact failure modes observed.
+
+Practical meaning of maximum coverage
+-------------------------------------
+No client can truthfully guarantee submission to 100% of all LinkedIn search results. Some results may not be Easy Apply, may already be applied, may be unavailable, may trigger LinkedIn account challenges, or may require factual legal/eligibility answers that must not be invented. v2.9.1 removes location as a default post-open blocker and targets maximum mechanical completion of eligible Easy Apply attempts while keeping those factual/sensitive guardrails.
