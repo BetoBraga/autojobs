@@ -220,6 +220,12 @@ Automatic mode does not invent work authorization, citizenship, visa, or sensiti
 
 ---
 
+### Before sharing a bug report
+
+- Complete login and account checks yourself. Keep the browser session and your application decisions under your control.
+- Review saved answers before using them; do not reuse an answer whose context or wording changed.
+- Keep the dedicated browser profile and the full runtime folder private. If you request support, share only the minimum redacted excerpt needed to reproduce the issue. Remove names, contact details, account identifiers, application answers, and local paths from logs or screenshots.
+
 ## Privacy, limitations, and safe use
 
 ### Your data stays close to you
